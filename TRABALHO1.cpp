@@ -9,12 +9,9 @@ const int POLTRONAS = 40;
 char teatro[FILEIRAS][POLTRONAS];
 
 void inicializarTeatro() {
-	for (int = 0; i < FILEIRAS; i++) {
-		for (int = 0; i < POLTRONAS; i++) {
-			teatro[i][j] = '.';
-		}
-	}
-		
+    for (int i = 0; i < FILEIRAS; i++)
+        for (int j = 0; j < POLTRONAS; j++)
+            teatro[i][j] = '.';
 }
 
 float precoFileira (int fileira) {
@@ -28,13 +25,13 @@ float precoFileira (int fileira) {
 
 void reservarPoltrona() {
 	int fileira, poltrona;
-	cout << "Informe o número da fileira (1 a 15): ";
+	cout << "Informe o nÃºmero da fileira (1 a 15): ";
 	cin >> fileira;
-	cout << "Informe o número da poltrona (1 a 40): ";
+	cout << "Informe o nÃºmero da poltrona (1 a 40): ";
 	cin >> poltrona;
 	
 	if (fileira < 1 || fileira > 15 || poltrona < 1 || poltrona > 40){
-		cout << "Entrada inválida. Tente novamente. \n";
+		cout << "Entrada invÃ¡lida. Tente novamente. \n";
 		return;
 	}
 	
@@ -42,12 +39,12 @@ void reservarPoltrona() {
 		teatro[fileira - 1][poltrona - 1] = '#';
 		cout << "Reserva realizada com sucesso.\n";
 	} else {
-		cout << "Poltrona já está ocupada.\n";
+		cout << "Poltrona jÃ¡ estÃ¡ ocupada.\n";
 	}
 }
 
 void mostrarMapa() {
-	cout << "\Mapa de Ocupação:\n";
+	cout << "\nMapa de OcupaÃ§Ã£o:\n";
 	for (int i = 0; i < FILEIRAS; i++) {
 		cout << "Fileira " << setw(2) << (i + 1) << ": ";
 		for (int j = 0; j < POLTRONAS; j++) {
@@ -63,7 +60,7 @@ void mostrarFaturamento() {
 	float total = 0.0;
 	
 	for (int i = 0; i < FILEIRAS; i++) {
-		for (int = j; j < POLTRONAS; j++) {
+		for (int j = 0; j < POLTRONAS; j++) {
 			if (teatro[i][j] == '#') {
 				ocupados++;
 				total += precoFileira(i + 1);
@@ -84,9 +81,9 @@ int main() {
 		cout << "Menu:\n";
 		cout << "0. Finalizar\n";
 		cout << "1. Reservar poltrona\n";
-		cout << "2. Mapa de ocupação\n";
+		cout << "2. Mapa de ocupaÃ§Ã£o\n";
 		cout << "3. Faturamento\n";
-		cout << "Escolha uma opção: ";
+		cout << "Escolha uma opÃ§Ã£o: ";
 		cin >> opcao;
 		
 		switch (opcao) {
@@ -103,7 +100,8 @@ int main() {
 				mostrarFaturamento();
 				break;
 			default:
-				cout << "Opção inválida. Tente novamente.\n";
+				cout << "OpÃ§Ã£o invÃ¡lida. Tente novamente.\n";
+		}
 	} while (opcao != 0);
 	
 	return 0;
